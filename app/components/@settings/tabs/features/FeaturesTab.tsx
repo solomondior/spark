@@ -89,7 +89,7 @@ const FeatureSection = memo(
       transition={{ duration: 0.3 }}
     >
       <div className="flex items-center gap-3">
-        <div className={classNames(icon, 'text-xl text-purple-500')} />
+        <div className={classNames(icon, 'text-xl text-green-500')} />
         <div>
           <h3 className="text-lg font-medium text-bolt-elements-textPrimary">{title}</h3>
           <p className="text-sm text-bolt-elements-textSecondary">{description}</p>
@@ -248,43 +248,29 @@ export default function FeaturesTab() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <div className="flex items-center gap-4">
-          <div
-            className={classNames(
-              'p-2 rounded-lg text-xl',
-              'bg-bolt-elements-background-depth-3 group-hover:bg-bolt-elements-background-depth-4',
-              'transition-colors duration-200',
-              'text-purple-500',
-            )}
-          >
-            <div className="i-ph:book" />
-          </div>
-          <div className="flex-1">
-            <h4 className="text-sm font-medium text-bolt-elements-textPrimary group-hover:text-purple-500 transition-colors">
-              Prompt Library
-            </h4>
-            <p className="text-xs text-bolt-elements-textSecondary mt-0.5">
-              Choose a prompt from the library to use as the system prompt
-            </p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="i-ph:book-open-text w-5 h-5 text-bolt-elements-textSecondary" />
+            <div>
+              <h4 className="font-medium text-bolt-elements-textPrimary">System Prompt</h4>
+              <p className="mt-1 text-sm text-bolt-elements-textSecondary">Choose a system prompt preset</p>
+            </div>
           </div>
           <select
             value={promptId}
-            onChange={(e) => {
-              setPromptId(e.target.value);
-              toast.success('Prompt template updated');
-            }}
+            onChange={(e) => setPromptId(e.target.value)}
             className={classNames(
-              'p-2 rounded-lg text-sm min-w-[200px]',
+              'px-3 py-2 rounded-lg text-sm max-w-[200px]',
               'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
               'text-bolt-elements-textPrimary',
-              'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
-              'group-hover:border-purple-500/30',
+              'focus:outline-none focus:ring-2 focus:ring-green-500/30',
+              'group-hover:border-green-500/30',
               'transition-all duration-200',
             )}
           >
-            {PromptLibrary.getList().map((x) => (
-              <option key={x.id} value={x.id}>
-                {x.label}
+            {PromptLibrary.getList().map((prompt) => (
+              <option key={prompt.id} value={prompt.id}>
+                {prompt.label}
               </option>
             ))}
           </select>

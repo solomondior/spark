@@ -36,8 +36,6 @@ interface WorkspaceProps {
   updateChatMestaData?: (metadata: any) => void;
 }
 
-const viewTransition = { ease: cubicEasingFn };
-
 const sliderOptions: SliderOptions<WorkbenchViewType> = {
   left: {
     value: 'code',
@@ -116,7 +114,7 @@ const FileModifiedDropdown = memo(
                         placeholder="Search files..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-8 pr-3 py-1.5 text-sm rounded-lg bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                        className="w-full pl-8 pr-3 py-1.5 text-sm rounded-lg bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor focus:outline-none focus:ring-2 focus:ring-green-500/50"
                       />
                       <div className="absolute left-2 top-1/2 -translate-y-1/2 text-bolt-elements-textTertiary">
                         <div className="i-ph:magnifying-glass" />
@@ -524,7 +522,14 @@ interface ViewProps extends HTMLMotionProps<'div'> {
 
 const View = memo(({ children, ...props }: ViewProps) => {
   return (
-    <motion.div className="absolute inset-0" transition={viewTransition} {...props}>
+    <motion.div
+      {...props}
+      className={classNames(
+        'h-full w-full overflow-hidden',
+        'bg-green-100/50 dark:bg-green-900/50',
+        props.className || '',
+      )}
+    >
       {children}
     </motion.div>
   );

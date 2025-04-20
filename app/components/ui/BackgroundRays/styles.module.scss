@@ -1,13 +1,13 @@
 .rayContainer {
   // Theme-specific colors
-  --ray-color-primary: color-mix(in srgb, var(--primary-color), transparent 30%);
-  --ray-color-secondary: color-mix(in srgb, var(--secondary-color), transparent 30%);
-  --ray-color-accent: color-mix(in srgb, var(--accent-color), transparent 30%);
+  --ray-color-primary: color-mix(in srgb, var(--primary-color), transparent 15%);
+  --ray-color-secondary: color-mix(in srgb, var(--secondary-color), transparent 15%);
+  --ray-color-accent: color-mix(in srgb, var(--accent-color), transparent 15%);
 
   // Theme-specific gradients
-  --ray-gradient-primary: radial-gradient(var(--ray-color-primary) 0%, transparent 70%);
-  --ray-gradient-secondary: radial-gradient(var(--ray-color-secondary) 0%, transparent 70%);
-  --ray-gradient-accent: radial-gradient(var(--ray-color-accent) 0%, transparent 70%);
+  --ray-gradient-primary: radial-gradient(var(--ray-color-primary) 0%, transparent 75%);
+  --ray-gradient-secondary: radial-gradient(var(--ray-color-secondary) 0%, transparent 75%);
+  --ray-gradient-accent: radial-gradient(var(--ray-color-accent) 0%, transparent 75%);
 
   position: fixed;
   inset: 0;
@@ -32,11 +32,12 @@
 
   :global(html[data-theme='dark']) & {
     mix-blend-mode: screen;
+    opacity: 0.9;
   }
 
   :global(html[data-theme='light']) & {
     mix-blend-mode: multiply;
-    opacity: 0.4;
+    opacity: 0.6;
   }
 }
 
@@ -47,8 +48,8 @@
   transform: rotate(65deg);
   top: -500px;
   left: -100px;
-  filter: blur(80px);
-  opacity: 0.6;
+  filter: blur(70px);
+  opacity: 0.75;
   animation: float1 15s infinite ease-in-out;
 }
 
@@ -59,8 +60,8 @@
   transform: rotate(-30deg);
   top: -300px;
   left: 200px;
-  filter: blur(60px);
-  opacity: 0.6;
+  filter: blur(50px);
+  opacity: 0.7;
   animation: float2 18s infinite ease-in-out;
 }
 
@@ -70,8 +71,8 @@
   background: var(--ray-gradient-accent);
   top: -320px;
   left: 500px;
-  filter: blur(65px);
-  opacity: 0.5;
+  filter: blur(55px);
+  opacity: 0.65;
   animation: float3 20s infinite ease-in-out;
 }
 

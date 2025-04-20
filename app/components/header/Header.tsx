@@ -19,11 +19,11 @@ export function Header() {
         <div className="i-ph:sidebar-simple-duotone text-xl" />
         <a href="/" className="text-2xl font-semibold text-accent flex items-center">
           {/* <span className="i-bolt:logo-text?mask w-[46px] inline-block" /> */}
-          <img src="/logo-light-styled.png" alt="logo" className="w-[90px] inline-block dark:hidden" />
-          <img src="/logo-dark-styled.png" alt="logo" className="w-[90px] inline-block hidden dark:block" />
+          <img src="/spark-logo-light-styled.png" alt="logo" className="w-[90px] inline-block dark:hidden" />
+          <img src="/spark-logo-dark-styled.png" alt="logo" className="w-[90px] inline-block hidden dark:block" />
         </a>
       </div>
-      {chat.started && ( // Display ChatDescription and HeaderActionButtons only when the chat has started.
+      {chat.started ? (
         <>
           <span className="flex-1 px-4 truncate text-center text-bolt-elements-textPrimary">
             <ClientOnly>{() => <ChatDescription />}</ClientOnly>
@@ -36,7 +36,45 @@ export function Header() {
             )}
           </ClientOnly>
         </>
+      ) : (
+        <div className="flex-1"></div> // Empty div to push social icons to the right when chat hasn't started
       )}
+      
+      {/* Social Links */}
+      <div className="flex items-center gap-4 ml-3 mr-2">
+        <a 
+          href="#twitter-link-placeholder" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
+          title="Twitter"
+        >
+          <img 
+            src="https://cdn.simpleicons.org/x/white" 
+            alt="Twitter" 
+            className="w-6 h-6"
+            width="24"
+            height="24"
+            crossOrigin="anonymous" 
+          />
+        </a>
+        <a 
+          href="#docs-link-placeholder" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
+          title="Documentation"
+        >
+          <img 
+            src="https://cdn.simpleicons.org/gitbook/white" 
+            alt="Documentation" 
+            className="w-6 h-6"
+            width="24"
+            height="24"
+            crossOrigin="anonymous" 
+          />
+        </a>
+      </div>
     </header>
   );
 }

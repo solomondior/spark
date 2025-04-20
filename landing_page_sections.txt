@@ -1,0 +1,26 @@
+# Landing Page Section Breakdown
+
+This document defines the named sections of the Spark landing page for easy reference when requesting modifications.
+
+1.  **Hero Section:**
+    *   Location: Top of the page (first image).
+    *   Content: Top navigation bar (Logo, Links, Open App button), main headline ("Your Intelligent AI Assistant..."), sub-headline ("Spark helps you solve problems..."), "Get Started Free" & "Learn More" buttons, large code editor image.
+
+2.  **Features Section:**
+    *   Location: Below the Hero Section (second image).
+    *   Content: Section title ("Powerful Features..."), subtitle ("Discover how Spark's AI..."), three feature cards (Natural Conversations, Task Automation, Content Generation).
+
+3.  **How It Works Section:**
+    *   Location: Below the Features Section (third image).
+    *   Content: Section title ("How Spark Works"), subtitle ("Getting started with Spark..."), three steps (Sign Up, Ask Questions, Get Results) with descriptions.
+
+4.  **Final CTA Section:**
+    *   Location: Below the How It Works Section, before the footer (top part of fourth image).
+    *   Content: Headline ("Ready to Experience..."), descriptive text ("Join thousands..."), "Get Started Free" button, "No credit card required..." text.
+
+5.  **Footer Section:**
+    *   Location: Bottom of the page (bottom part of fourth image).
+    *   Content: Logo/tagline, link columns (Product, Resources, Company), copyright line, Privacy Policy & Terms of Service links.
+
+**Usage:**
+Refer to these section names (e.g., "Hero Section", "Features Section") when specifying where changes should be made on the landing page. 

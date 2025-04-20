@@ -271,7 +271,7 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                       href={createdRepoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 text-sm inline-flex items-center gap-2"
+                      className="px-4 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 text-sm inline-flex items-center gap-2"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -327,7 +327,7 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="mx-auto w-12 h-12 rounded-xl bg-bolt-elements-background-depth-3 flex items-center justify-center text-purple-500"
+                    className="mx-auto w-12 h-12 rounded-xl bg-bolt-elements-background-depth-3 flex items-center justify-center text-green-500"
                   >
                     <div className="i-ph:github-logo w-6 h-6" />
                   </motion.div>
@@ -336,7 +336,7 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                     Please connect your GitHub account in Settings {'>'} Connections to push your code to GitHub.
                   </p>
                   <motion.button
-                    className="px-4 py-2 rounded-lg bg-purple-500 text-white text-sm hover:bg-purple-600 inline-flex items-center gap-2"
+                    className="px-4 py-2 rounded-lg bg-green-500 text-white text-sm hover:bg-green-600 inline-flex items-center gap-2"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleClose}
@@ -372,7 +372,7 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="w-10 h-10 rounded-xl bg-bolt-elements-background-depth-3 flex items-center justify-center text-purple-500"
+                    className="w-10 h-10 rounded-xl bg-bolt-elements-background-depth-3 flex items-center justify-center text-green-500"
                   >
                     <div className="i-ph:git-branch w-5 h-5" />
                   </motion.div>
@@ -431,13 +431,13 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <div className="i-ph:git-repository w-4 h-4 text-purple-500" />
-                                <span className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-purple-500">
+                                <div className="i-ph:git-repository w-4 h-4 text-green-500" />
+                                <span className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-green-500">
                                   {repo.name}
                                 </span>
                               </div>
                               {repo.private && (
-                                <span className="text-xs px-2 py-1 rounded-full bg-purple-500/10 text-purple-500">
+                                <span className="text-xs px-2 py-1 rounded-full bg-green-500/10 text-green-500">
                                   Private
                                 </span>
                               )}
@@ -481,16 +481,25 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                   )}
 
                   <div className="flex items-center gap-2">
+                    <label
+                      htmlFor="privateRepo"
+                      className={classNames(
+                        'flex items-center gap-2 text-sm cursor-pointer px-4 py-2 rounded-lg border transition-colors',
+                        isPrivate
+                          ? 'bg-green-500/10 text-green-500 border-green-500/20'
+                          : 'bg-white dark:bg-[#0A0A0A] border-[#E5E5E5] dark:border-[#1A1A1A] text-bolt-elements-textSecondary hover:border-green-500/30',
+                      )}
+                    >
+                      <div className={classNames('w-5 h-5', isPrivate ? 'i-ph:lock-fill' : 'i-ph:lock-open')} />
+                      <span>{isPrivate ? 'Private' : 'Public'}</span>
+                    </label>
                     <input
                       type="checkbox"
-                      id="private"
+                      id="privateRepo"
                       checked={isPrivate}
                       onChange={(e) => setIsPrivate(e.target.checked)}
-                      className="rounded border-[#E5E5E5] dark:border-[#1A1A1A] text-purple-500 focus:ring-purple-500 dark:bg-[#0A0A0A]"
+                      className="rounded border-[#E5E5E5] dark:border-[#1A1A1A] text-green-500 focus:ring-green-500 dark:bg-[#0A0A0A]"
                     />
-                    <label htmlFor="private" className="text-sm text-gray-600 dark:text-gray-400">
-                      Make repository private
-                    </label>
                   </div>
 
                   <div className="pt-4 flex gap-2">
@@ -505,13 +514,13 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
                     </motion.button>
                     <motion.button
                       type="submit"
-                      disabled={isLoading}
+                      disabled={isLoading || !repoName.trim()}
                       className={classNames(
-                        'flex-1 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 text-sm inline-flex items-center justify-center gap-2',
-                        isLoading ? 'opacity-50 cursor-not-allowed' : '',
+                        'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg',
+                        'text-sm font-medium text-white',
+                        'bg-green-500 hover:bg-green-600',
+                        'transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
                       )}
-                      whileHover={!isLoading ? { scale: 1.02 } : {}}
-                      whileTap={!isLoading ? { scale: 0.98 } : {}}
                     >
                       {isLoading ? (
                         <>

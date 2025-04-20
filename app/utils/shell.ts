@@ -54,7 +54,7 @@ export async function newShellProcess(webcontainer: WebContainer, terminal: ITer
 
 export type ExecutionResult = { output: string; exitCode: number } | undefined;
 
-export class BoltShell {
+export class SparkShell {
   #initialized: (() => void) | undefined;
   #readyPromise: Promise<void>;
   #webcontainer: WebContainer | undefined;
@@ -289,6 +289,10 @@ export function cleanTerminalOutput(input: string): string {
     .replace(/\u0000/g, ''); // Remove null characters
 }
 
+export function newSparkShellProcess() {
+  return new SparkShell();
+}
+
 export function newBoltShellProcess() {
-  return new BoltShell();
+  return newSparkShellProcess();
 }

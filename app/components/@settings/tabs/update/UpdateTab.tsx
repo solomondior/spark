@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { Dialog, DialogRoot, DialogTitle, DialogDescription, DialogButton } from '~/components/ui/Dialog';
 import { classNames } from '~/utils/classNames';
 import { Markdown } from '~/components/chat/Markdown';
+import { Switch } from '~/components/ui/Switch';
 
 interface UpdateProgress {
   stage: 'fetch' | 'pull' | 'install' | 'build' | 'complete';
@@ -292,7 +293,7 @@ const UpdateTab = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="i-ph:arrow-circle-up text-xl text-purple-500" />
+        <div className="i-ph:arrow-circle-up text-xl text-green-500" />
         <div>
           <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Updates</h3>
           <p className="text-sm text-bolt-elements-textSecondary">Check for and manage application updates</p>
@@ -307,7 +308,7 @@ const UpdateTab = () => {
         transition={{ duration: 0.3, delay: 0.1 }}
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="i-ph:gear text-purple-500 w-5 h-5" />
+          <div className="i-ph:gear text-green-500 w-5 h-5" />
           <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Update Settings</h3>
         </div>
 
@@ -319,20 +320,15 @@ const UpdateTab = () => {
                 Automatically check and apply updates when available
               </p>
             </div>
-            <button
-              onClick={() => setUpdateSettings((prev) => ({ ...prev, autoUpdate: !prev.autoUpdate }))}
+            <Switch
+              checked={updateSettings.autoUpdate}
+              onCheckedChange={(checked) => setUpdateSettings((prev) => ({ ...prev, autoUpdate: checked }))}
               className={classNames(
-                'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-                updateSettings.autoUpdate ? 'bg-purple-500' : 'bg-gray-200 dark:bg-gray-700',
+                'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent',
+                'transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500',
+                updateSettings.autoUpdate ? 'bg-green-500' : 'bg-gray-200 dark:bg-gray-700',
               )}
-            >
-              <span
-                className={classNames(
-                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
-                  updateSettings.autoUpdate ? 'translate-x-6' : 'translate-x-1',
-                )}
-              />
-            </button>
+            />
           </div>
 
           <div className="flex items-center justify-between">
@@ -340,20 +336,15 @@ const UpdateTab = () => {
               <span className="text-sm text-bolt-elements-textPrimary">In-App Notifications</span>
               <p className="text-xs text-bolt-elements-textSecondary">Show notifications when updates are available</p>
             </div>
-            <button
-              onClick={() => setUpdateSettings((prev) => ({ ...prev, notifyInApp: !prev.notifyInApp }))}
+            <Switch
+              checked={updateSettings.notifyInApp}
+              onCheckedChange={(checked) => setUpdateSettings((prev) => ({ ...prev, notifyInApp: checked }))}
               className={classNames(
-                'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-                updateSettings.notifyInApp ? 'bg-purple-500' : 'bg-gray-200 dark:bg-gray-700',
+                'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent',
+                'transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500',
+                updateSettings.notifyInApp ? 'bg-green-500' : 'bg-gray-200 dark:bg-gray-700',
               )}
-            >
-              <span
-                className={classNames(
-                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
-                  updateSettings.notifyInApp ? 'translate-x-6' : 'translate-x-1',
-                )}
-              />
-            </button>
+            />
           </div>
 
           <div className="flex items-center justify-between">
@@ -391,7 +382,7 @@ const UpdateTab = () => {
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <div className="i-ph:arrows-clockwise text-purple-500 w-5 h-5" />
+            <div className="i-ph:arrows-clockwise text-green-500 w-5 h-5" />
             <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Update Status</h3>
           </div>
           <div className="flex items-center gap-2">
@@ -400,8 +391,8 @@ const UpdateTab = () => {
                 onClick={handleUpdate}
                 className={classNames(
                   'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
-                  'bg-purple-500 text-white',
-                  'hover:bg-purple-600',
+                  'bg-green-500 text-white',
+                  'hover:bg-green-600',
                   'transition-colors duration-200',
                 )}
               >
@@ -417,8 +408,8 @@ const UpdateTab = () => {
               className={classNames(
                 'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
                 'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
-                'hover:bg-purple-500/10 hover:text-purple-500',
-                'dark:hover:bg-purple-500/20 dark:hover:text-purple-500',
+                'hover:bg-green-500/10 hover:text-green-500',
+                'dark:hover:bg-green-500/20 dark:hover:text-green-500',
                 'text-bolt-elements-textPrimary',
                 'transition-colors duration-200',
                 'disabled:opacity-50 disabled:cursor-not-allowed',
@@ -472,8 +463,8 @@ const UpdateTab = () => {
                   className={classNames(
                     'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
                     'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
-                    'hover:bg-purple-500/10 hover:text-purple-500',
-                    'dark:hover:bg-purple-500/20 dark:hover:text-purple-500',
+                    'hover:bg-green-500/10 hover:text-green-500',
+                    'dark:hover:bg-green-500/20 dark:hover:text-green-500',
                     'text-bolt-elements-textPrimary',
                     'transition-colors duration-200',
                     'w-fit',
@@ -486,7 +477,7 @@ const UpdateTab = () => {
             </div>
             {updateProgress?.details?.additions !== undefined && updateProgress?.details?.deletions !== undefined && (
               <div className="mt-2 flex items-center gap-2">
-                <div className="i-ph:git-diff text-purple-500 w-4 h-4" />
+                <div className="i-ph:git-diff text-green-500 w-4 h-4" />
                 Changes: <span className="text-green-600">+{updateProgress.details.additions}</span>{' '}
                 <span className="text-red-600">-{updateProgress.details.deletions}</span>
               </div>
@@ -498,7 +489,7 @@ const UpdateTab = () => {
         {updateProgress?.details?.changelog && (
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-2">
-              <div className="i-ph:scroll text-purple-500 w-5 h-5" />
+              <div className="i-ph:scroll text-green-500 w-5 h-5" />
               <p className="font-medium">Changelog</p>
             </div>
             <div className="bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-lg p-4 overflow-auto max-h-[300px]">
@@ -519,8 +510,8 @@ const UpdateTab = () => {
               className={classNames(
                 'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
                 'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
-                'hover:bg-purple-500/10 hover:text-purple-500',
-                'dark:hover:bg-purple-500/20 dark:hover:text-purple-500',
+                'hover:bg-green-500/10 hover:text-green-500',
+                'dark:hover:bg-green-500/20 dark:hover:text-green-500',
                 'text-bolt-elements-textPrimary',
                 'transition-colors duration-200',
                 'w-fit',
@@ -566,8 +557,8 @@ const UpdateTab = () => {
                     className={classNames(
                       'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
                       'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
-                      'hover:bg-purple-500/10 hover:text-purple-500',
-                      'dark:hover:bg-purple-500/20 dark:hover:text-purple-500',
+                      'hover:bg-green-500/10 hover:text-green-500',
+                      'dark:hover:bg-green-500/20 dark:hover:text-green-500',
                       'text-bolt-elements-textPrimary',
                       'transition-colors duration-200',
                       'w-fit',
@@ -585,7 +576,7 @@ const UpdateTab = () => {
                   <div className="bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-lg p-3 space-y-2">
                     {updateProgress.details.commitMessages.map((msg, index) => (
                       <div key={index} className="text-sm text-bolt-elements-textSecondary flex items-start gap-2">
-                        <div className="i-ph:git-commit text-purple-500 w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <div className="i-ph:git-commit text-green-500 w-4 h-4 mt-0.5 flex-shrink-0" />
                         <span>{msg}</span>
                       </div>
                     ))}
@@ -596,13 +587,13 @@ const UpdateTab = () => {
               {updateProgress?.details?.totalSize && (
                 <div className="flex items-center gap-4 text-sm text-bolt-elements-textSecondary">
                   <div className="flex items-center gap-2">
-                    <div className="i-ph:file text-purple-500 w-4 h-4" />
+                    <div className="i-ph:file text-green-500 w-4 h-4" />
                     Total size: {updateProgress.details.totalSize}
                   </div>
                   {updateProgress?.details?.additions !== undefined &&
                     updateProgress?.details?.deletions !== undefined && (
                       <div className="flex items-center gap-2">
-                        <div className="i-ph:git-diff text-purple-500 w-4 h-4" />
+                        <div className="i-ph:git-diff text-green-500 w-4 h-4" />
                         Changes: <span className="text-green-600">+{updateProgress.details.additions}</span>{' '}
                         <span className="text-red-600">-{updateProgress.details.deletions}</span>
                       </div>

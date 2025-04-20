@@ -110,7 +110,7 @@ export class WorkbenchStore {
   get showTerminal() {
     return this.#terminalStore.showTerminal;
   }
-  get boltTerminal() {
+  get sparkTerminal() {
     return this.#terminalStore.boltTerminal;
   }
   get alert() {
@@ -145,6 +145,10 @@ export class WorkbenchStore {
   }
   attachBoltTerminal(terminal: ITerminal) {
     this.#terminalStore.attachBoltTerminal(terminal);
+  }
+
+  attachSparkTerminal(terminal: ITerminal) {
+    this.#terminalStore.attachSparkTerminal(terminal);
   }
 
   onTerminalResize(cols: number, rows: number) {
@@ -419,7 +423,7 @@ export class WorkbenchStore {
       type,
       runner: new ActionRunner(
         webcontainer,
-        () => this.boltTerminal,
+        () => this.sparkTerminal,
         (alert) => {
           if (this.#reloadedMessages.has(messageId)) {
             return;
