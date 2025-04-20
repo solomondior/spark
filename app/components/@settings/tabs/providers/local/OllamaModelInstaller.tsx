@@ -385,9 +385,7 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
     <div className="space-y-6">
       <div className="flex items-center justify-between pt-6">
         <div className="flex items-center gap-3">
-          <div
-            className="flex items-center justify-center h-16 w-16 rounded-full bg-bolt-elements-background-depth-3"
-          >
+          <div className="flex items-center justify-center h-16 w-16 rounded-full bg-bolt-elements-background-depth-3">
             <OllamaIcon className="w-8 h-8 text-green-500" />
           </div>
           <div>
@@ -449,9 +447,12 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
                 ollama.com/library
                 <div className="i-ph:arrow-square-out text-sm" />
               </a>
-              <a 
-                href="#" 
-                onClick={(e) => {e.preventDefault(); document.getElementById('customModelInput')?.focus();}}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('customModelInput')?.focus();
+                }}
                 className="text-green-500 hover:underline inline-flex items-center gap-1 text-base font-medium"
               >
                 Install custom model

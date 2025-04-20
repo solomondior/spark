@@ -39,39 +39,39 @@ export function Header() {
       ) : (
         <div className="flex-1"></div> // Empty div to push social icons to the right when chat hasn't started
       )}
-      
+
       {/* Social Links */}
       <div className="flex items-center gap-4 ml-3 mr-2">
-        <a 
-          href="#twitter-link-placeholder" 
-          target="_blank" 
+        <a
+          href="#twitter-link-placeholder"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
           title="Twitter"
         >
-          <img 
-            src="https://cdn.simpleicons.org/x/white" 
-            alt="Twitter" 
+          <img
+            src="https://cdn.simpleicons.org/x/white"
+            alt="Twitter"
             className="w-6 h-6"
             width="24"
             height="24"
-            crossOrigin="anonymous" 
+            crossOrigin="anonymous"
           />
         </a>
-        <a 
-          href="#docs-link-placeholder" 
-          target="_blank" 
+        <a
+          href="#docs-link-placeholder"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
           title="Documentation"
         >
-          <img 
-            src="https://cdn.simpleicons.org/gitbook/white" 
-            alt="Documentation" 
+          <img
+            src="https://cdn.simpleicons.org/gitbook/white"
+            alt="Documentation"
             className="w-6 h-6"
             width="24"
             height="24"
-            crossOrigin="anonymous" 
+            crossOrigin="anonymous"
           />
         </a>
       </div>

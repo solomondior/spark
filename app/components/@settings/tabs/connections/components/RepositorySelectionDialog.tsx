@@ -876,9 +876,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                     disabled={!customUrl}
                     className={classNames(
                       'w-full h-10 px-4 py-2 rounded-lg text-white transition-all duration-200 flex items-center gap-2 justify-center',
-                      customUrl
-                        ? 'bg-green-500 hover:bg-green-600'
-                        : 'bg-gray-300 dark:bg-gray-700 cursor-not-allowed',
+                      customUrl ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-300 dark:bg-gray-700 cursor-not-allowed',
                     )}
                   >
                     Import Repository
