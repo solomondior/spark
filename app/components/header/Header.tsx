@@ -42,6 +42,25 @@ export function Header() {
 
       {/* Social Links */}
       <div className="flex items-center gap-4 ml-3 mr-2">
+        {/* Get $SPARK Button */}
+        <a
+          href="#get-spark-placeholder"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center px-5 py-2 rounded-full 
+            bg-green-500 hover:bg-green-600 text-black font-medium text-sm 
+            shadow-[0_0_15px_rgba(16,185,129,0.7)] hover:shadow-[0_0_20px_rgba(16,185,129,0.9)]
+            border border-green-400
+            transition-all duration-300 animate-pulse-subtle"
+          title="Get $SPARK"
+          style={{
+            textShadow: '0 0 5px rgba(0,0,0,0.2)',
+            animationDuration: '3s',
+          }}
+        >
+          Get $SPARK
+        </a>
+        
         <a
           href="#twitter-link-placeholder"
           target="_blank"
@@ -62,17 +81,13 @@ export function Header() {
           href="#docs-link-placeholder"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
+          className="flex items-center justify-center px-3 py-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
           title="Documentation"
         >
-          <img
-            src="https://cdn.simpleicons.org/gitbook/white"
-            alt="Documentation"
-            className="w-6 h-6"
-            width="24"
-            height="24"
-            crossOrigin="anonymous"
-          />
+          <div className="flex items-center gap-2">
+            <div className="i-ph:files-duotone w-5 h-5 text-white" />
+            <span className="text-white text-sm font-medium">Docs</span>
+          </div>
         </a>
       </div>
     </header>
