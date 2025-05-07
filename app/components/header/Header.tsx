@@ -78,7 +78,7 @@ export function Header() {
           />
         </a>
         <a
-          href="#docs-link-placeholder"
+          href="https://docs.sparkai.digital/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center px-3 py-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
