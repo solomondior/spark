@@ -4,9 +4,21 @@ import { chatStore } from '~/lib/stores/chat';
 import { classNames } from '~/utils/classNames';
 import { HeaderActionButtons } from './HeaderActionButtons.client';
 import { ChatDescription } from '~/lib/persistence/ChatDescription.client';
+import { useState } from 'react';
 
 export function Header() {
   const chat = useStore(chatStore);
+  const [copied, setCopied] = useState(false);
+  
+  const handleCopyCA = () => {
+    const caText = "EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump";
+    navigator.clipboard.writeText(caText)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(err => console.error('Failed to copy text: ', err));
+  };
 
   return (
     <header
@@ -43,9 +55,34 @@ export function Header() {
       {/* Position the CA box in the center */}
       <div className="flex-1 flex justify-center items-center">
         {/* CA Box */}
-        <div className="flex items-center bg-gray-900 rounded-md border-2 border-green-500 px-4 py-2">
+        <div className="flex items-center bg-transparent rounded-md border-2 border-green-500 px-4 py-2 w-[400px] sm:w-[500px] relative group">
           <span className="text-white text-sm font-medium mr-2">CA:</span>
-          <div className="text-gray-300 text-sm truncate max-w-[200px] sm:max-w-[300px]">To be determined</div>
+          <div 
+            className="text-gray-300 text-sm w-[calc(100%-30px)] cursor-pointer pr-7 whitespace-nowrap"
+            onClick={handleCopyCA}
+          >
+            EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump
+          </div>
+          
+          {/* Copy button */}
+          <div 
+            className="absolute right-4 text-gray-400 hover:text-green-400 cursor-pointer"
+            onClick={handleCopyCA}
+            title="Copy to clipboard"
+          >
+            {copied ? (
+              <div className="i-ph:check-circle-duotone w-5 h-5 text-green-500" />
+            ) : (
+              <div className="i-ph:copy-duotone w-5 h-5" />
+            )}
+          </div>
+          
+          {/* Copy feedback tooltip */}
+          {copied && (
+            <div className="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg">
+              Copied!
+            </div>
+          )}
         </div>
       </div>
 
