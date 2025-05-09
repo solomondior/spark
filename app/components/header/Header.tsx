@@ -60,9 +60,9 @@ export function Header() {
         >
           Get $SPARK
         </a>
-        
+
         <a
-          href="#twitter-link-placeholder"
+          href="https://x.com/SparkAI_Dev"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center p-2 rounded-md bg-gray-800 hover:bg-green-700 border border-transparent hover:border-bolt-elements-borderColorActive text-bolt-elements-textSecondary hover:text-white transition-all"
