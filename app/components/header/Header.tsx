@@ -11,7 +11,7 @@ export function Header() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyCA = () => {
-    const caText = 'EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump';
+    const caText = 'Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump';
     navigator.clipboard
       .writeText(caText)
       .then(() => {
@@ -62,7 +62,7 @@ export function Header() {
             className="text-gray-300 text-sm w-[calc(100%-30px)] cursor-pointer pr-7 whitespace-nowrap"
             onClick={handleCopyCA}
           >
-            EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump
+            Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump
           </div>
 
           {/* Copy button */}
