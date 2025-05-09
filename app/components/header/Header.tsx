@@ -91,7 +91,7 @@ export function Header() {
       <div className="flex items-center gap-4 ml-3 mr-2">
         {/* Get $SPARK Button */}
         <a
-          href="#get-spark-placeholder"
+          href="https://pump.fun/coin/Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center px-5 py-2 rounded-full 
