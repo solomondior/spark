@@ -9,15 +9,16 @@ import { useState } from 'react';
 export function Header() {
   const chat = useStore(chatStore);
   const [copied, setCopied] = useState(false);
-  
+
   const handleCopyCA = () => {
-    const caText = "EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump";
-    navigator.clipboard.writeText(caText)
+    const caText = 'EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump';
+    navigator.clipboard
+      .writeText(caText)
       .then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       })
-      .catch(err => console.error('Failed to copy text: ', err));
+      .catch((err) => console.error('Failed to copy text: ', err));
   };
 
   return (
@@ -57,15 +58,15 @@ export function Header() {
         {/* CA Box */}
         <div className="flex items-center bg-transparent rounded-md border-2 border-green-500 px-4 py-2 w-[400px] sm:w-[500px] relative group">
           <span className="text-white text-sm font-medium mr-2">CA:</span>
-          <div 
+          <div
             className="text-gray-300 text-sm w-[calc(100%-30px)] cursor-pointer pr-7 whitespace-nowrap"
             onClick={handleCopyCA}
           >
             EZHrwmVfmMYmAAyxYZRFWbnTc2wtggmsYVTsW72rpump
           </div>
-          
+
           {/* Copy button */}
-          <div 
+          <div
             className="absolute right-4 text-gray-400 hover:text-green-400 cursor-pointer"
             onClick={handleCopyCA}
             title="Copy to clipboard"
@@ -76,7 +77,7 @@ export function Header() {
               <div className="i-ph:copy-duotone w-5 h-5" />
             )}
           </div>
-          
+
           {/* Copy feedback tooltip */}
           {copied && (
             <div className="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg">
