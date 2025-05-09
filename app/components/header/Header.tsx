@@ -11,7 +11,7 @@ export function Header() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyCA = () => {
-    const caText = 'Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump';
+    const caText = 'ruaNq1dgrkNdeCJXYYqRfha9UkAskX8f3NPjDKrpump';
     navigator.clipboard
       .writeText(caText)
       .then(() => {
@@ -62,7 +62,7 @@ export function Header() {
             className="text-gray-300 text-sm w-[calc(100%-30px)] cursor-pointer pr-7 whitespace-nowrap"
             onClick={handleCopyCA}
           >
-            Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump
+            ruaNq1dgrkNdeCJXYYqRfha9UkAskX8f3NPjDKrpump
           </div>
 
           {/* Copy button */}
@@ -91,7 +91,7 @@ export function Header() {
       <div className="flex items-center gap-4 ml-3 mr-2">
         {/* Get $SPARK Button */}
         <a
-          href="https://pump.fun/coin/Ur7cFHy5W7fD5z2N8WbiatJMALq36VBcLD6kopTpump"
+          href="https://pump.fun/coin/ruaNq1dgrkNdeCJXYYqRfha9UkAskX8f3NPjDKrpump"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center px-5 py-2 rounded-full 
