@@ -40,14 +40,17 @@ export function Header() {
         <div className="flex-1"></div> // Empty div to push social icons to the right when chat hasn't started
       )}
 
+      {/* Position the CA box in the center */}
+      <div className="flex-1 flex justify-center items-center">
+        {/* CA Box */}
+        <div className="flex items-center bg-gray-900 rounded-md border-2 border-green-500 px-4 py-2">
+          <span className="text-white text-sm font-medium mr-2">CA:</span>
+          <div className="text-gray-300 text-sm truncate max-w-[200px] sm:max-w-[300px]">To be determined</div>
+        </div>
+      </div>
+
       {/* Social Links */}
       <div className="flex items-center gap-4 ml-3 mr-2">
-        {/* CA Box */}
-        <div className="flex items-center bg-gray-900 rounded-md border border-gray-700 px-3 py-2 mr-2">
-          <span className="text-white text-sm font-medium mr-2">CA:</span>
-          <div className="text-gray-300 text-sm truncate max-w-[150px] sm:max-w-[250px]">To be determined</div>
-        </div>
-
         {/* Get $SPARK Button */}
         <a
           href="#get-spark-placeholder"
